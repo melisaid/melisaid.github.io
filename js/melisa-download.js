@@ -1,3 +1,5 @@
+import { platform } from "os";
+
 
 (function ($) {
     "use strict"; // Start of use strict
@@ -18,12 +20,12 @@
             asset = data.assets.find(item => item.name.includes('dmg'))
         } else if (platform.os.family == 'Windows' || platform.os.family == 'Windows XP') {
             html = `
-            <i class="fa fa-apple" aria-hidden="true"></i> Download For Windows ${platform.os.architecture} (${data.tag_name})
+            <i class="fa fa-windows" aria-hidden="true"></i> Download For Windows ${platform.os.architecture} (${data.tag_name})
             `
             asset = data.assets.find(item => item.name.includes('exe'))
         } else {
             html = `
-            <i class="fa fa-apple" aria-hidden="true"></i> Melisa Belum Tersedia di ${platform.os.family}
+            <i class="fa fa-${platform.os.family.toLowerCase()}" aria-hidden="true"></i> Melisa Belum Tersedia di ${platform.os.family}
             `
             asset = {
                 browser_download_url: data.html_url
