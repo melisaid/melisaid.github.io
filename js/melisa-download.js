@@ -1,5 +1,3 @@
-import { platform } from "os";
-
 
 (function ($) {
     "use strict"; // Start of use strict
