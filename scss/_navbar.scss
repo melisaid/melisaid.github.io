@@ -11,6 +11,14 @@
         &:focus {
             color: darken($theme-primary, 10%);
         }
+        @media (max-width: 480px) {
+            display: block;
+            width:175px;
+        }
+        img{
+            width: 100%;
+            height: auto;
+        }
     }
     .navbar-toggler {
         font-size: 12px;
@@ -56,6 +64,12 @@
                 color: white;
             }
         }
+        .nav-link{
+            color: #fff;
+            &:hover {
+                color: $theme-primary;
+            }
+        }
         &.navbar-shrink {
             border-color: fade-out($gray-darker, .9);
             background-color: white;
@@ -69,6 +83,12 @@
             .navbar-nav > li > a,
             .navbar-nav > li > a:focus {
                 color: $gray-darker;
+                &:hover {
+                    color: $theme-primary;
+                }
+            }
+            .nav-link{
+                color:$theme-secondary;
                 &:hover {
                     color: $theme-primary;
                 }
