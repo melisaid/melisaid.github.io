@@ -1,30 +1,26 @@
 
 (function ($) {
-    "use strict"; // Start of use strict
+    //"use strict"; // Start of use strict
     // change year
     var d = new Date();
     var n = d.getFullYear();
     $('.year').text(n);
+    console.log()
+    var releaseUrl = window.location.hostname === 'localhost' ? 'http://api.localhost/latest' : 'https://api.github.com/repos/melisaid/melisa/releases/latest'
     // github release
-    $.get('https://api.github.com/repos/melisaid/melisa/releases/latest', function (data) {
+    $.get(releaseUrl, function (data) {
 
         var asset = {}
         var html = ``
         if (platform.os.family == 'OS X') {
 
-            html = `
-            <i class="fa fa-apple" aria-hidden="true"></i> Download For MacOS (${data.tag_name})
-            `
-            asset = data.assets.find(item => item.name.includes('dmg'))
+            html = '<i class="fa fa-apple" aria-hidden="true"></i> Download For MacOS (' + data.tag_name + ')';
+            asset = _.find(data.assets, function (item) { return item.name.includes('dmg') })
         } else if (platform.os.family == 'Windows' || platform.os.family == 'Windows XP') {
-            html = `
-            <i class="fa fa-windows" aria-hidden="true"></i> Download For Windows ${platform.os.architecture} (${data.tag_name})
-            `
-            asset = data.assets.find(item => item.name.includes('exe'))
+            html = '<i class="fa fa-windows" aria-hidden="true"></i> Download For Windows ' + platform.os.architecture + ' (' + data.tag_name + ')';
+            asset = _.find(data.assets, function (item) { return item.name.includes('exe') })
         } else {
-            html = `
-            <i class="fa fa-${platform.os.family.toLowerCase()}" aria-hidden="true"></i> Melisa Belum Tersedia di ${platform.os.family}
-            `
+            html = '<i class="fa fa-' + platform.os.family.toLowerCase() + '" aria-hidden="true"></i> Melisa Belum Tersedia di ' + platform.os.family
             asset = {
                 browser_download_url: data.html_url
             }
