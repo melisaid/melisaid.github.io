@@ -5,7 +5,7 @@
     var d = new Date();
     var n = d.getFullYear();
     $('.year').text(n);
-    console.log()
+
     var releaseUrl = window.location.hostname === 'localhost' ? 'http://api.localhost/latest' : 'https://api.github.com/repos/melisaid/melisa/releases/latest'
     // github release
     $.get(releaseUrl, function (data) {
