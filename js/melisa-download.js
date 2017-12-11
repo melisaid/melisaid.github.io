@@ -6,7 +6,14 @@
     var n = d.getFullYear();
     $('.year').text(n);
 
-    var releaseUrl = window.location.hostname === 'localhost' ? 'http://api.localhost/latest' : 'https://api.github.com/repos/melisaid/melisa/releases/latest'
+    var releaseUrl = window.location.hostname === 'localhost' ? 'http://api.localhost/latest' : 'https://api.github.com/repos/melisaid/melisa/releases/latest';
+    var counterUrl = window.location.hostname === 'localhost' ? 'http://api.localhost/counter' : 'https://api.melisa.id/counter';
+
+    // melisa counter
+    $.get(counterUrl, function (data) {
+
+        $('.user-counter').text(data.user.toLocaleString());
+    }, 'json');
     // github release
     $.get(releaseUrl, function (data) {
 
