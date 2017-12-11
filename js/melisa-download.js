@@ -12,7 +12,7 @@
     // melisa counter
     $.get(counterUrl, function (data) {
 
-        $('.user-counter').text(data.user.toLocaleString());
+        $('.user-counter').text(parseInt(data.user).toLocaleString());
     }, 'json');
     // github release
     $.get(releaseUrl, function (data) {
