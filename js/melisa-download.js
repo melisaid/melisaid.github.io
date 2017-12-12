@@ -23,8 +23,8 @@
 
             html = '<i class="fa fa-apple" aria-hidden="true"></i> Download For MacOS (' + data.tag_name + ')';
             asset = _.find(data.assets, function (item) { return item.name.includes('dmg') })
-        } else if (platform.os.family == 'Windows' || platform.os.family == 'Windows XP') {
-            html = '<i class="fa fa-windows" aria-hidden="true"></i> Download For Windows ' + platform.os.architecture + ' (' + data.tag_name + ')';
+        } else if (platform.os.family.indexOf('Windows') > -1) {
+            html = '<i class="fa fa-windows" aria-hidden="true"></i> Download For Windows ' + platform.os.version + '/' + platform.os.architecture + '-bit (' + data.tag_name + ')';
             asset = _.find(data.assets, function (item) { return item.name.includes('exe') })
         } else {
             html = '<i class="fa fa-' + platform.os.family.toLowerCase() + '" aria-hidden="true"></i> Melisa Belum Tersedia di ' + platform.os.family
