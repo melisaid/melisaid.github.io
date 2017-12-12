@@ -48,6 +48,10 @@ section {
   section h2 {
     font-size: 50px; }
 
+.changelog-body {
+  width: 50%;
+  margin: -50px auto 0; }
+
 #mainNav {
   border-color: rgba(34, 34, 34, 0.05);
   background-color: white;
