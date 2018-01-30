@@ -29,7 +29,7 @@
             asset = _.find(data.assets, function (item) { return item.name.includes('exe') })
         }
         else if (linux.indexOf(platform.os.family) > -1) {
-            html = '<i class="fa fa-windows" aria-hidden="true"></i> Download For ' + platform.os.family + ' ' + platform.os.version + '/' + platform.os.architecture + '-bit (' + data.tag_name + ')';
+            html = '<i class="fa fa-windows" aria-hidden="true"></i> Download For ' + platform.os.family + '/' + platform.os.architecture + '-bit (' + data.tag_name + ')';
             if (platform.os.architecture == 32) {
                 asset = _.find(data.assets, function (item) { return item.name.includes('i386.AppImage') })
             } else {
