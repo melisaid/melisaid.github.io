@@ -48,6 +48,18 @@ section {
   section h2 {
     font-size: 50px; }
 
+.requirements {
+  background-color: #f5fafe; }
+
+.changelog-body, .center-list {
+  width: 50%;
+  margin: -50px auto 0; }
+
+.center-list {
+  margin-top: 50px; }
+  .center-list ul {
+    margin-bottom: 40px; }
+
 #mainNav {
   border-color: rgba(34, 34, 34, 0.05);
   background-color: white;
