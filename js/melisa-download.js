@@ -26,13 +26,13 @@
 
             html = '<i class="fa fa-apple" aria-hidden="true"></i> Download For MacOS (' + data.tag_name + ')';
             asset = _.find(data.assets, function (item) { return item.name.includes('dmg') })
-            assetName = asset.name
+            assetName = asset.name;
             s3DowlnloadUrl = s3Url + encodeURI(assetName)
         } else if (platform.os.family.indexOf('Windows') > -1) {
             html = '<i class="fa fa-windows" aria-hidden="true"></i> Download For Windows ' + platform.os.version + '/' + platform.os.architecture + '-bit (' + data.tag_name + ')';
             asset = _.find(data.assets, function (item) { return item.name.includes('exe') })
-            assetName = 'Melisa Setup ' + data.name + '.exe';
-            s3DowlnloadUrl = s3Url + encodeURI(assetName)
+            assetName = asset.name;//'Melisa Setup ' + data.name + '.exe';
+            s3DowlnloadUrl = s3Url + encodeURI(assetName);
         }
         else if (linux.indexOf(platform.os.family) > -1) {
             html = '<i class="fa fa-windows" aria-hidden="true"></i> Download For ' + platform.os.family + '/' + platform.os.architecture + '-bit (' + data.tag_name + ')';
