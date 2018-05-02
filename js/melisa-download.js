@@ -7,7 +7,7 @@
     $('.year').text(n);
 
     var releaseUrl = window.location.hostname === 'localhost' ? 'http://api.localhost/latest' : 'https://api.github.com/repos/melisaid/melisa/releases/latest';
-    var counterUrl = window.location.hostname === 'localhost' ? 'http://api.localhost/counter' : 'https://api.melisa.id/counter';
+    var counterUrl = window.location.hostname === 'localhost' ? 'http://api.localhost/counter' : 'https://api2.melisa.id/counter';
     var s3Url = 'https://s3-ap-southeast-1.amazonaws.com/melisa-app/';
     // melisa counter
     $.get(counterUrl, function (data) {
